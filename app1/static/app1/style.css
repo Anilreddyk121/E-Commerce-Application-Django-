@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 1em;
+}
+
+.product-list, .cart-list {
+    list-style: none;
+    padding: 0;
+}
+
+.product-item, .cart-item {
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.product-item a, .cart-item a {
+    display: inline-block;
+    margin: 0.5em 0;
+}

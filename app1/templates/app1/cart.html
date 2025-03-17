@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{% static 'app1/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+        <nav>
+            <a href="{% url 'product_list' %}">Back to Product List</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <ul class="cart-list">
+            {% for product in cart.products.all %}
+                <li class="cart-item">
+                    <h2>{{ product.name }}</h2>
+                    <p> {{ product.price }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <h2>Total: {{ cart.total_price }}</h2>
+    </main>
+</body>
+</html>

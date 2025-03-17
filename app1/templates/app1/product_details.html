@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static 'app1/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ product.name }}</h1>
+        <nav>
+            <a href="{% url 'product_list' %}">Back to Product List</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'cart_view' %}">Cart</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        <p>{{ product.description }}</p>
+        <p> {{ product.price }}</p>
+        {% if user.is_authenticated %}
+            <a href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+        {% endif %}
+    </main>
+</body>
+</html>
